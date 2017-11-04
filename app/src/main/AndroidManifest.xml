@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".QRGenerator" />
+        <activity android:name=".PromotionsActivity"></activity>
     </application>
 
 </manifest>
