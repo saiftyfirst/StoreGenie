@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">StoreGenie</string>
+
+<string name="text_home">Orders</string>
+<string name="text_notifications"></string>
+<string name="text_search">QR</string>
+
+<string name="menu_home">Orders</string>
+<string name="menu_search">Promotions</string>
+<string name="menu_notifications">QR</string>
 </resources>
