@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //first commit from ankith // sd
+        //first commit from ankith // sd // df
         qrCodeView = (ImageView) findViewById(R.id.qrView);
 
 
