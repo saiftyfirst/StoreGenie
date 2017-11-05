@@ -23,11 +23,6 @@ import net.glxn.qrgen.image.ImageType;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView qrCodeView;
-    Bitmap sampleImage;
-
-
-
     private static final String SELECTED_ITEM = "arg_selected_item";
 
     private BottomNavigationView mBottomNav;
@@ -39,21 +34,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //first commit from ankith // sd
-        qrCodeView = (ImageView) findViewById(R.id.qrView);
-
-
-        try {
-            MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-            BitMatrix bitMatrix = multiFormatWriter.encode("20144747", BarcodeFormat.QR_CODE, 200, 200);
-            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-            sampleImage = barcodeEncoder.createBitmap(bitMatrix);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        qrCodeView.setImageBitmap(sampleImage);
-
-
 
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigation);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
