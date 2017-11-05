@@ -1,7 +1,5 @@
 package com.example.safe.storegenie;
-
-import android.graphics.Bitmap;
-import android.os.Environment;
+import android.content.Intent;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -12,25 +10,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ImageView;
-
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.ImageView;
-
-import android.view.View;
-
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.common.BitMatrix;
-
-import net.glxn.qrgen.QRCode;
-import net.glxn.qrgen.image.ImageType;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView mBottomNav;
     private int mSelectedItem;
 
+//
+//    Intent prIntent;
+//    Intent qrIntent;
 
 
 
@@ -67,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         selectFragment(selectedItem);
 
 
+
+//        prIntent = new Intent(getApplicationContext(), PromotionActivity.class);
+//        qrIntent = new Intent(getApplicationContext(), QRGenerator.class);
+//
+
+
     }
 
 
@@ -92,17 +80,24 @@ public class MainActivity extends AppCompatActivity {
         Fragment frag = null;
         // init corresponding fragment
         switch (item.getItemId()) {
-            case R.id.menu_home:
+            case R.id.menu_home: // orders
                 frag = MenuFragment.newInstance(getString(R.string.text_home),
                         getColorFromRes(R.color.color_home));
+
                 break;
-            case R.id.menu_notifications:
-                frag = MenuFragment.newInstance(getString(R.string.text_notifications),
-                        getColorFromRes(R.color.color_notifications));
+            case R.id.menu_notifications: // qr
+//                frag = MenuFragment.newInstance(getString(R.string.text_notifications),
+//                        getColorFromRes(R.color.color_notifications));
+
+                Intent qrIntent = new Intent(getApplicationContext(), QRGenerator.class);
+                this.startActivity(qrIntent);
+
                 break;
-            case R.id.menu_search:
+            case R.id.menu_search: //promotions
                 frag = MenuFragment.newInstance(getString(R.string.text_search),
                         getColorFromRes(R.color.color_search));
+                Intent prIntent = new Intent(getApplicationContext(), PromotionActivity.class);
+                this.startActivity(prIntent);
                 break;
         }
 
